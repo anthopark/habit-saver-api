@@ -1,0 +1,27 @@
+version: '3'
+
+tasks:
+  up:
+    cmds:
+      - docker compose up -d
+    desc: Start Docker Compose in detached mode
+
+  down:
+    cmds:
+      - docker compose down
+    desc: Stop and remove Docker Compose containers
+
+  logs:
+    cmds:
+      - docker compose logs -f
+    desc: View Docker Compose logs in real-time
+
+  logs:api:
+    cmds:
+      - docker compose logs -f hs_api
+    desc: View FastAPI logs in real-time
+
+  logs:db:
+    cmds:
+      - docker compose logs -f hs_sql_db
+    desc: View PostgresSQL logs in real-time
