@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  hs_sql_db:
+    image: postgres:16.4
+    container_name: postgres_db
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - hs_postgres_data:/var/lib/postgresql/data
+    networks:
+      - hs_backend_network
+
+  hs_api:
+    build: ./fastapi
+    volumes:
+      - ./fastapi:/code
+    container_name: fastapi_app
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgres://postgres:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+    depends_on:
+      - hs_sql_db
+    networks:
+      - hs_backend_network
+
+volumes:
+  hs_postgres_data:
+
+networks:
+  hs_backend_network:
