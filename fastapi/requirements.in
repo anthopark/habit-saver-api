@@ -1,0 +1,6 @@
+fastapi[standard]
+black
+isort
+flake8
+pre-commit
+pip-tools
