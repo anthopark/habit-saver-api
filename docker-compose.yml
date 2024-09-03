@@ -13,7 +13,7 @@ services:
       - hs_backend_network
 
   hs_api:
-    build: ./
+    build: .
     volumes:
       - ./src:/app/src
     container_name: fastapi_app

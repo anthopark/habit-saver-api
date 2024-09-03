@@ -4,6 +4,16 @@
 2. [Taskfile](https://taskfile.dev/)
 3. Python 3.11+ for development. The FastAPI project was initiated with Python 3.12.5
 
+### Virtual Environment
+
+```shell
+python -m venv .venv
+
+source .venv/bin/activate
+
+pip install -r requirements.txt
+```
+
 ### Task Commands
 
 See [Taskfile.yml](./Taskfile.yml)
