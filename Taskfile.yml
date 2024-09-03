@@ -25,3 +25,8 @@ tasks:
     cmds:
       - docker compose logs -f hs_sql_db
     desc: View PostgresSQL logs in real-time
+
+  pre-commit:
+    cmds:
+      - pre-commit run --all-files
+    desc: Run all pre-commit hooks
