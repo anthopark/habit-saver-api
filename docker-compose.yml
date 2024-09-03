@@ -13,9 +13,9 @@ services:
       - hs_backend_network
 
   hs_api:
-    build: ./fastapi
+    build: ./
     volumes:
-      - ./fastapi:/code
+      - ./src:/app/src
     container_name: fastapi_app
     ports:
       - "8000:8000"

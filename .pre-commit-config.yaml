@@ -4,24 +4,24 @@ repos:
     hooks:
       - id: black
         args: [--line-length=88]
-        files: ^fastapi/
+        files: ^src/
   - repo: https://github.com/PyCQA/isort
     rev: 5.13.2
     hooks:
       - id: isort
         args: ['--profile', 'black']
-        files: ^fastapi/
+        files: ^src/
 
   - repo: https://github.com/PyCQA/flake8
     rev: 7.1.1
     hooks:
       - id: flake8
-        files: ^fastapi/
+        files: ^src/
 
   - repo: local
     hooks:
       - id: update-requirements
-        name: Update requirements.txt in fastapi directory
+        name: Update requirements.txt
         entry: ./update_requirements.sh # or ./update_requirements.py if using Python
         language: script
         stages: [commit]
